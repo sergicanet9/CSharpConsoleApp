@@ -83,9 +83,9 @@ namespace ConsoleAppCore
                                 {
                                     //foreach (detalle d in m.detalle.ToList())
                                     //{
-                                    //    ClaseEstaticaMetodos.Delete(d);
+                                    //    StaticMethodsClass.Delete(d);
                                     //}
-                                    StaticMethodsClass.Delete(m); //elimina tambien los hijos (cascade)
+                                    StaticMethodsClass.Delete(m); //cascade on delete for childs
                                 }
 
                             }
