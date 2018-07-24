@@ -137,7 +137,7 @@ namespace ConsoleAppCore
             }
             catch (Exception exc)
             {
-                Console.WriteLine(String.Format(@"Exception with message: {exc.Message}"));
+                Console.WriteLine(String.Format("Exception with message: "+exc.Message));
             }
         }
     }
