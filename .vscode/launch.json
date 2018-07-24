@@ -12,7 +12,7 @@
             "program": "${workspaceFolder}/ConsoleAppCore/bin/Debug/netcoreapp2.0/ConsoleAppCore.dll",
             "args": [],
             "cwd": "${workspaceFolder}/ConsoleAppCore",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart"
         },
