@@ -25,13 +25,13 @@ namespace ConsoleAppCore
                 String n; ConsoleKeyInfo aux;
                 do
                 {
-                    Console.WriteLine("\n\nElige una opcion:");
-                    Console.WriteLine("\t1. Añadir.");
-                    Console.WriteLine("\t2. Seleccionar.");
-                    Console.WriteLine("\t3. Renombrar.");
-                    Console.WriteLine("\t4. Eliminar.");
-                    Console.WriteLine("\t5. Mostrar BD.");
-                    Console.WriteLine("\t6. Añadir hijos a un padre");
+                    Console.WriteLine("\n\nChoose an option:");
+                    Console.WriteLine("\t1. Add.");
+                    Console.WriteLine("\t2. Select.");
+                    Console.WriteLine("\t3. Rename.");
+                    Console.WriteLine("\t4. Delete.");
+                    Console.WriteLine("\t5. Show DB.");
+                    Console.WriteLine("\t6. Add childs to father");
                     Console.WriteLine("\tESC. Salir\n");
 
                     aux = Console.ReadKey();
@@ -39,42 +39,42 @@ namespace ConsoleAppCore
                     switch (aux.Key)
                     {
                         default:
-                            Console.WriteLine("Opcion incorrecta");
+                            Console.WriteLine("Incorrect option!");
                             break;
                         case ConsoleKey.Escape:
                             break;
                         case ConsoleKey.D1:
                         case ConsoleKey.NumPad1:
-                            Console.WriteLine("\nEscribir nombre: ");
+                            Console.WriteLine("\nType name: ");
                             n = Console.ReadLine();
                             StaticMethodsClass.Add<master>(new master() { Name = n });
                             break;
                         case ConsoleKey.D2:
                         case ConsoleKey.NumPad2:
-                            Console.WriteLine("\nEscribir nombre: ");
+                            Console.WriteLine("\nType name: ");
                             n = Console.ReadLine();
                             var m1 = StaticMethodsClass.Get<master>(x => x.Name.ToUpper().Equals(n.ToUpper()));
-                            Console.WriteLine(String.Format("Encontradas {0} coincidencias.", m1.Count()));
+                            Console.WriteLine(String.Format("Found {0} coincidences.", m1.Count()));
                             break;
                         case ConsoleKey.D3:
                         case ConsoleKey.NumPad3:
-                            Console.WriteLine("\nEscribir nombre: ");
+                            Console.WriteLine("\nType name: ");
                             n = Console.ReadLine();
                             var m3 = StaticMethodsClass.Get<master>(x => x.Name.ToUpper().Equals(n.ToUpper()));
                             if (m3 != null && m3.Any())
                             {
                                 foreach (var m in m3.ToList())
                                 {
-                                    m.Name = "Cambiado";
+                                    m.Name = "Changed";
                                     StaticMethodsClass.Update(m);
                                 }
                             }
-                            else Console.WriteLine("No encontrado");
+                            else Console.WriteLine("Not found!");
 
                             break;
                         case ConsoleKey.D4:
                         case ConsoleKey.NumPad4:
-                            Console.WriteLine("\nEscribir nombre: ");
+                            Console.WriteLine("\nType name: ");
                             n = Console.ReadLine();
                             var m4 = StaticMethodsClass.Get<master>(x => x.Name.ToUpper().Equals(n.ToUpper()));
                             if (m4 != null && m4.Any())
@@ -89,7 +89,7 @@ namespace ConsoleAppCore
                                 }
 
                             }
-                            else Console.WriteLine("No encontrado");
+                            else Console.WriteLine("Not found!");
                             var m5 = StaticMethodsClass.Get<detail>(x => x.IdMaster.Equals(n.ToUpper()));
 
                             break;
@@ -99,31 +99,31 @@ namespace ConsoleAppCore
                             Console.Write("\n...................................................................");
                             foreach (master m in context.Set<master>().ToList())
                             {
-                                Console.Write("\nID Maestro: " + m.Id + ", Nombre: " + m.Name);
+                                Console.Write("\nID Master: " + m.Id + ", Name: " + m.Name);
                             }
                             Console.Write("\n...................................................................");
                             foreach (detail d in context.Set<detail>().ToList())
                             {
-                                Console.Write("\nID Hijo: " + d.Id + ",    Nombre: " + d.Name + ", ID Maestro: " + d.IdMaster);
+                                Console.Write("\nID Detail: " + d.Id + ",    Name: " + d.Name + ", ID Master: " + d.IdMaster);
                             }
                             Console.Write("\n...................................................................\n");
 
                             break;
                         case ConsoleKey.D6:
                         case ConsoleKey.NumPad6:
-                            String nombreHijo = null;
-                            Console.WriteLine("\nEscribir nombre del padre: ");
+                            String childName = null;
+                            Console.WriteLine("\nType father's name: ");
                             n = Console.ReadLine();
                             var m6 = StaticMethodsClass.GetFirst<master>(x => x.Name.ToUpper().Equals(n.ToUpper()));
                             if (m6 != null)
                             {
-                                Console.WriteLine("Escribir nombre del hijo: ");
-                                nombreHijo = Console.ReadLine();
-                                StaticMethodsClass.Add(new detail() { Name = nombreHijo, IdMaster = m6.Id });
+                                Console.WriteLine("Type child's name: ");
+                                childName = Console.ReadLine();
+                                StaticMethodsClass.Add(new detail() { Name = childName, IdMaster = m6.Id });
                             }
                             else
                             {
-                                Console.WriteLine("Padre no encontrado");
+                                Console.WriteLine("Father not found!");
                             }
                             break;
 
@@ -137,7 +137,7 @@ namespace ConsoleAppCore
             }
             catch (Exception exc)
             {
-                Console.WriteLine(String.Format(@"Excepcion controlada con mensaje: {exc.Message}"));
+                Console.WriteLine(String.Format(@"Exception with message: {exc.Message}"));
             }
         }
     }
