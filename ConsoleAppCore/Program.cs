@@ -16,10 +16,7 @@ namespace ConsoleAppCore
         {
             try
             {
-                var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
-                Configuration = builder.Build();
-
-                context = new Model(Configuration.GetConnectionString("LocalDB"));
+                context = new ContextFactory().CreateDbContext(null);
                 StaticMethodsClass.SetContext(context);
 
                 String n; ConsoleKeyInfo aux;
@@ -32,14 +29,14 @@ namespace ConsoleAppCore
                     Console.WriteLine("\t4. Delete.");
                     Console.WriteLine("\t5. Show DB.");
                     Console.WriteLine("\t6. Add childs to father");
-                    Console.WriteLine("\tESC. Salir\n");
+                    Console.WriteLine("\tCtrl+C. Exit\n");
 
                     aux = Console.ReadKey();
 
                     switch (aux.Key)
                     {
                         default:
-                            Console.WriteLine("Incorrect option!");
+                            Console.WriteLine("Incorrect option! Press any key...");
                             break;
                         case ConsoleKey.Escape:
                             break;
@@ -126,14 +123,10 @@ namespace ConsoleAppCore
                                 Console.WriteLine("Father not found!");
                             }
                             break;
-
-
                     }
                     Console.ReadKey();
                     Console.Clear();
-                } while (aux.Key != ConsoleKey.Escape);
-
-                Console.ReadLine();
+                } while (true);
             }
             catch (Exception exc)
             {

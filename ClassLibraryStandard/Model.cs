@@ -4,19 +4,12 @@ using MySql.Data.EntityFrameworkCore;
 
 public class Model : DbContext, IContext
 {
-    private string connectionString;
-    public Model(string connectionString) : base()
-    {
-        this.connectionString = connectionString;
-    }
-
+    public Model(DbContextOptions<Model> options) : base(options)
+    {}
+    
     public virtual DbSet<detail> detalle { get; set; }
     public virtual DbSet<master> maestro { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseMySQL(connectionString);
-    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // fluent API
