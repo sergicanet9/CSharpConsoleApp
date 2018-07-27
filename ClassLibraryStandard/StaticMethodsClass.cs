@@ -20,13 +20,13 @@ public static class StaticMethodsClass //Generic methods
         Context.SaveChanges();
     }
 
-    public static IEnumerable<T> Get<T>(Expression<Func<T, Boolean>> includeProperties) where T : class //No modifica context
+    public static IEnumerable<T> Get<T>(Expression<Func<T, Boolean>> includeProperties) where T : class
     {
         var s1 = Context.Set<T>().Where(includeProperties);
         return s1;
     }
 
-    public static T GetFirst<T>(Expression<Func<T, Boolean>> includeProperties) where T : class //No modifica context
+    public static T GetFirst<T>(Expression<Func<T, Boolean>> includeProperties) where T : class
     {
         var s2 = Context.Set<T>().FirstOrDefault(includeProperties);
         return s2;
@@ -34,7 +34,7 @@ public static class StaticMethodsClass //Generic methods
 
     public static void Update<T>(T n) where T : class
     {
-        Context.Entry<T>(n).State = EntityState.Modified; //marca entidad como cambiada, de esta manera savechanges detecta el cambio (para case 3: renombrar)
+        Context.Entry<T>(n).State = EntityState.Modified;
         Context.SaveChanges();
     }
 
