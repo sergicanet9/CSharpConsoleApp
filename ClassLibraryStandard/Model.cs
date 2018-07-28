@@ -1,13 +1,12 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
-using MySql.Data.EntityFrameworkCore;
 
 public class Model : DbContext, IContext
 {
     public Model(DbContextOptions<Model> options) : base(options)
     {}
     
-    public virtual DbSet<detail> detalle { get; set; }
+    public virtual DbSet<detail> detail { get; set; }
     public virtual DbSet<master> maestro { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

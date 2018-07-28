@@ -10,7 +10,7 @@ public class detail
     [StringLength(25)]
     public string Name { get; set; }
 
-    [ForeignKey("maestro")]
+    [ForeignKey("master")]
     public int IdMaster { get; set; } //'int?' nullable, 'int' not nullable
 
     public virtual master master { get; set; }
