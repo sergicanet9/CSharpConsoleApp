@@ -28,7 +28,7 @@ namespace ConsoleAppCore
                     Console.WriteLine("\t3. Rename.");
                     Console.WriteLine("\t4. Delete.");
                     Console.WriteLine("\t5. Show DB.");
-                    Console.WriteLine("\t6. Add childs to father");
+                    Console.WriteLine("\t6. Add childs to father.");
                     Console.WriteLine("\tCtrl+C. Exit\n");
 
                     aux = Console.ReadKey();
@@ -36,7 +36,7 @@ namespace ConsoleAppCore
                     switch (aux.Key)
                     {
                         default:
-                            Console.WriteLine("Incorrect option! Press any key...");
+                            Console.WriteLine("Incorrect option!");
                             break;
                         case ConsoleKey.Escape:
                             break;
@@ -124,6 +124,7 @@ namespace ConsoleAppCore
                             }
                             break;
                     }
+                    Console.WriteLine("Press any key to continue...");
                     Console.ReadKey();
                     Console.Clear();
                 } while (true);
