@@ -15,4 +15,4 @@ dotnet run
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/scanet9/CSharpConsoleApp/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/scanet9/CSharpConsoleApp/blob/master/LICENSE) file for details.
