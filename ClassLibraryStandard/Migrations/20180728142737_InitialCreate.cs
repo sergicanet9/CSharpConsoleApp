@@ -20,7 +20,7 @@ namespace ClassLibraryStandard.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "detalle",
+                name: "detail",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -30,9 +30,9 @@ namespace ClassLibraryStandard.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_detalle", x => x.Id);
+                    table.PrimaryKey("PK_detail", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_detalle_master_IdMaster",
+                        name: "FK_detail_master_IdMaster",
                         column: x => x.IdMaster,
                         principalTable: "master",
                         principalColumn: "Id",
@@ -40,15 +40,15 @@ namespace ClassLibraryStandard.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_detalle_IdMaster",
-                table: "detalle",
+                name: "IX_detail_IdMaster",
+                table: "detail",
                 column: "IdMaster");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "detalle");
+                name: "detail");
 
             migrationBuilder.DropTable(
                 name: "master");

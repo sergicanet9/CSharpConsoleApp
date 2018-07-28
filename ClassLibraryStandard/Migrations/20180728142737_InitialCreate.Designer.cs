@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClassLibraryStandard.Migrations
 {
     [DbContext(typeof(Model))]
-    [Migration("20180728114404_InitialCreate")]
+    [Migration("20180728142737_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,7 +30,7 @@ namespace ClassLibraryStandard.Migrations
 
                     b.HasIndex("IdMaster");
 
-                    b.ToTable("detalle");
+                    b.ToTable("detail");
                 });
 
             modelBuilder.Entity("master", b =>

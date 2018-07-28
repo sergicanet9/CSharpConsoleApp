@@ -28,7 +28,7 @@ namespace ClassLibraryStandard.Migrations
 
                     b.HasIndex("IdMaster");
 
-                    b.ToTable("detalle");
+                    b.ToTable("detail");
                 });
 
             modelBuilder.Entity("master", b =>
