@@ -13,7 +13,7 @@ public class ContextFactory : IDesignTimeDbContextFactory<Model>
         configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json").Build();
 
         var optionsBuilder = new DbContextOptionsBuilder<Model>();
-        optionsBuilder.UseMySQL(configuration.GetConnectionString("LocalDB"));
+        optionsBuilder.UseSqlite(configuration.GetConnectionString("DB1"));
 
         return new Model(optionsBuilder.Options);
     }

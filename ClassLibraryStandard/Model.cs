@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
-using MySql.Data.EntityFrameworkCore;
 
 public class Model : DbContext, IContext
 {
